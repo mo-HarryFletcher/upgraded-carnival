@@ -33,7 +33,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo Add other actions to build
-          var=$(git log);
+          var=$(git log --first-parent --merges);
           echo the value is $var
         # env: |
           # var_name=git log --first-parent --merges -1 --oneline
