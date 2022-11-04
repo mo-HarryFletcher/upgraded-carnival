@@ -33,6 +33,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo Add other actions to build
+          git fetch
           last_merge=$(git log --first-parent --merges -1 --oneline)
           echo Hello there $last_merge END
         # env: |
