@@ -35,9 +35,8 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          git fetch
-          var_name=$(git log --first-parent --merges -1 --oneline)
-          echo this is &var_name
+          var_name=$(git log --first-parent --merges -1 --oneline --pretty=format:'%H')
+          echo this is $var_name
         # env: |
           # var_name=git log --first-parent --merges -1 --oneline
         # git checkout -b "this-is-a-new-branch"
