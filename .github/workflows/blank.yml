@@ -33,7 +33,8 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo Add other actions to build
-          var_name=$(git log --first-parent --merges -1 --oneline)
           echo Hello there $var_name
+        env: |
+          var_name=git log --first-parent --merges -1 --oneline
         # git checkout -b "this-is-a-new-branch"
         # git push --set-upstream origin HEAD
