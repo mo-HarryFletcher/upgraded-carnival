@@ -32,7 +32,8 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          echo "Add other actions to build"
-          echo $(git log --first-parent --merges -1 --oneline)
+          echo Add other actions to build
+          var_name=$(git log --first-parent --merges -1 --oneline)
+          echo Hello there $var_name
         # git checkout -b "this-is-a-new-branch"
         # git push --set-upstream origin HEAD
