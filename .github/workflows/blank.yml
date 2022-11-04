@@ -32,7 +32,8 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          var=$(git log origin/main -3);
+          git fetch origin/main
+          var=$(git log --first-parent --merges -1 --oneline);
           echo the value is $var
         # env: |
           # var_name=git log --first-parent --merges -1 --oneline
