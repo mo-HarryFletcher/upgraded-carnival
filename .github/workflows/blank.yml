@@ -32,7 +32,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          echo output git log --first-parent --merges --oneline
+          git log --first-parent --merges --oneline
         # env: |
           # var_name=git log --first-parent --merges -1 --oneline
         # git checkout -b "this-is-a-new-branch"
