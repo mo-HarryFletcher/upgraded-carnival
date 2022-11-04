@@ -33,6 +33,6 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo "Add other actions to build"
-          echo git log --first-parent --merges -1 --oneline
+          git log --first-parent --merges -1 --oneline
         # git checkout -b "this-is-a-new-branch"
         # git push --set-upstream origin HEAD
