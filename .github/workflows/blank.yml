@@ -36,7 +36,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           git fetch
-          git log --first-parent main -5 --oneline
+          git log --first-parent main -5 --oneline --merges
         # env: |
           # var_name=git log --first-parent --merges -1 --oneline
         # git checkout -b "this-is-a-new-branch"
