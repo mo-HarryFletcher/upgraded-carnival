@@ -35,3 +35,4 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           git checkout -b "this-is-a-new-branch"
+          git push --set-upstream origin HEAD
