@@ -33,7 +33,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo Add other actions to build
-          FIRST_NAME="Harry"
+          FIRST_NAME=git log -n 1 --pretty=format:"%H"
           echo Hello there $FIRST_NAME init
         # env: |
           # var_name=git log --first-parent --merges -1 --oneline
