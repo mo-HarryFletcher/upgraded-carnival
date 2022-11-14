@@ -1,4 +1,4 @@
-name: Auto approve
+name: Auto approve revert PR
 
 on: pull_request_target
 
@@ -7,6 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
-    if: github.event.pull_request.title == 'testing'
+    if: startsWith(github.event.pull_request.title, 'Revert')
     steps:
       - uses: hmarr/auto-approve-action@v3
