@@ -1,0 +1,24 @@
+name: Test
+
+on:
+  pull_request:
+
+jobs:
+  jest:
+    name: Test
+    runs-on: ubuntu-latest
+    if: startsWith(github.event.pull_request.title, 'Revert')
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            shouldRequireApprovalFromPerson:
+              - '!test.md'
+      - uses: ./
+        with:
+          approve: ${{ steps.filter.outputs.shouldRequireApprovalFromPerson == 'false' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
