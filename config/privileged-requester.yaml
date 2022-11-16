@@ -1,0 +1,6 @@
+---
+requesters:
+  dependabot[bot]:
+    labels:
+      - dependencies
+      - github_actions
