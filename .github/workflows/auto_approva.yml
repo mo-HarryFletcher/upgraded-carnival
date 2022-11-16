@@ -5,18 +5,14 @@ on: pull_request_target
 jobs:
   auto-approve:
     runs-on: ubuntu-latest
+
     permissions:
       pull-requests: write
+
     if: startsWith(github.event.pull_request.title, 'Revert') && !startsWith(github.event.pull_request.title, 'Revert "Revert')
     steps:
+      # checkout the repository
       - uses: actions/checkout@v3
-      - uses: ./
-        with:
-          myToken: ${{ secrets.GITHUB_TOKEN }}
-          robotUserToken: ${{ secrets.REPO_GITHUB_TOKEN }}
-          path: config/privileged-requester.yaml
-          prCreator: ${{ github.event.pull_request.user.login }}
-          prNumber: ${{ github.event.pull_request.number }}
-          checkCommits: "true"
-          checkDiff: "true"
-          checkLabels: "true"
+
+      # run privileged-requester
+      - uses: github/privileged-requester@vX.X.X
