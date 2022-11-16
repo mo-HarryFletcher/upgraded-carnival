@@ -5,16 +5,12 @@ on: pull_request_target
 jobs:
   auto-approve:
     runs-on: ubuntu-latest
-
     permissions:
       pull-requests: write
-
     if: startsWith(github.event.pull_request.title, 'Revert') && !startsWith(github.event.pull_request.title, 'Revert "Revert')
     steps:
-      - name: Codeball
-        uses: sturdy-dev/codeball-action@v2
-        with:
-          approvePullRequests: "true"
-          labelPullRequestsWhenApproved: "false"
-          labelPullRequestsWhenReviewNeeded: "false"
-          failJobsWhenReviewNeeded: "false"
+      # checkout the repository
+      - uses: actions/checkout@v3
+
+      # run privileged-requester
+      - uses: github/privileged-requester@v1.0.0
