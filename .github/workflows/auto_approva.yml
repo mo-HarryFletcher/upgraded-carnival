@@ -20,6 +20,6 @@ jobs:
           path: config/privileged-requester.yaml
           prCreator: ${{ github.event.pull_request.user.login }}
           prNumber: ${{ github.event.pull_request.number }}
-          checkCommits: "true"
-          checkDiff: "true"
-          checkLabels: "true"
+          checkCommits: "false"
+          checkDiff: "false"
+          checkLabels: "false"
