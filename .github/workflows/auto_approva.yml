@@ -14,3 +14,12 @@ jobs:
 
       # run privileged-requester
       - uses: github/privileged-requester@v1.0.0
+        with:
+          myToken: ${{ secrets.GITHUB_TOKEN }}
+          robotUserToken: ${{ secrets.REPO_GITHUB_TOKEN }}
+          path: config/privileged-requester.yaml
+          prCreator: ${{ github.event.pull_request.user.login }}
+          prNumber: ${{ github.event.pull_request.number }}
+          checkCommits: "true"
+          checkDiff: "true"
+          checkLabels: "true"
