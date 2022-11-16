@@ -7,6 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
-    if: startsWith(github.event.pull_request.title, 'Revert')
+    if: startsWith(github.event.pull_request.title, 'Revert') && !startsWith(github.event.pull_request.title, 'Revert "Revert')
     steps:
       - uses: hmarr/auto-approve-action@v3
